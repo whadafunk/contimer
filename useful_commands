@@ -1,0 +1,33 @@
+# Set system to sync with NTP
+timedatectl set-ntp true
+timedatectl set-timezone Africa/Nairobi
+
+# display information about current timesources
+# M - Mode: ^Server, =peer, #local
+# S - State: * currently sync, + acceptable, - excluded, ? lost, ~ too much variance
+chronyc sources -v
+
+# tracking command displays parameters about the system’s clock performance
+chronyc tracking
+
+# display the number of ntp servers and peers
+chronyc activity
+
+# Force time sync for local system
+chronyc makestep
+
+# Display server statistics
+chronyc serverstats
+
+chronyc add peer
+chronyc add server
+chronyc delete
+chronyc clients
+chronyc allow [all] [subnet]
+chronyc deny [all] [subnet]
+
+# Generate authentication keys (MD5 or SHA1)
+chronyc keygen [id[type[bits]]]
+# Examples
+chronyc keygen 1 SHA1 256
+chronyc keygen 2 MD5 80

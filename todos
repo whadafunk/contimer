@@ -1,0 +1,4 @@
+# Future planned additions
+
+- Run chronyd with dedicated user
+- Use docker env variabled to specify ntp servers
